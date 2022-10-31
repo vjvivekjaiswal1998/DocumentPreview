@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewData["Title"] = "Document";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<h1>Welcome User</h1>
+    <p> You can view the file, With out Downloading the file in the current tab</p>
+
+    @Html.ActionLink("WordPreview", "GetWordPreview")|
+    @Html.ActionLink("PdfPreview", "GetPdfPreview")|
+    @Html.ActionLink("ImagePreview", "GetImagePreview")
+    @*<div style="height: 800px;width: 100%;">
+            <iframe src="@ViewBag.DocumentLocation"
+                    frameBorder="0"
+                    scrolling="auto"
+                    height="100%"
+                    width="100%"
+                    allowfullscreen></iframe>
+        </div>*@
+    <br />
+&nbsp;
+<p> You can view the file, With out Downloading the file in the new Tab</p>
+<a href="@Url.Action("GetWordPreview", "Document")" target="_blank"">
+    <div class="upload-item">
+        <i class="fa fa-file fa-3"></i>
+        <span>WordPreview in NewTab</span>
+    </div>
+</a>
+<a href="@Url.Action("GetPdfPreview", "Document")" target="_blank">
+    <div class="upload-item">
+        <i class="fa fa-file fa-3"></i>
+        <span>PdfPreview in NewTab</span>
+    </div>
+</a>
+<a href="@Url.Action("GetImagePreview", "Document")" target="_blank">
+    <div class="upload-item">
+        <i class="fa fa-file fa-3"></i>
+        <span>ImagePreview in NewTab</span>
+    </div>
+</a>
+
+<br />
+<p> You can view the file, With out Downloading the file in the new window</p>
+<a href="#" onclick="myFunction1()">
+    <div class="upload-item">
+        <i class="fa fa-file fa-3"></i>
+        <span>WordPreviewNewWindow</span>
+    </div>
+</a>
+<a href="#" onclick="myFunction2()">
+    <div class="upload-item">
+        <i class="fa fa-file fa-3"></i>
+        <span>PdfPreviewNewWindow</span>
+    </div>
+</a>
+<a href="#" onclick="myFunction3()">
+    <div class="upload-item">
+        <i class="fa fa-file fa-3"></i>
+        <span>ImagePreviewNewTab</span>
+    </div>
+</a>
+
+
+@*<button onclick="myFunction1()">WordPreviewNewWindow</button>*@
+
+<script>
+    function myFunction1() {
+        window.open("https://drive.google.com/viewerng/viewer?embedded=true&url=@ViewBag.WordDocument", 800, 600);
+
+    }
+    function myFunction2() {
+  window.open("@ViewBag.PdfDocument",800,600);
+    }
+    function myFunction3() {
+        window.open("@ViewBag.ImageDocument", 800, 600);
+    }
+</script>
+<style>
+    a {
+        color: #d02d17;
+        font-weight: 600
+    }
+</style>

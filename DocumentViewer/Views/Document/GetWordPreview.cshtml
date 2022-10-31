@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "GetWordPreview";
+}
+
+<h1>GetWordPreview</h1>
+
+<button id="click" class="btn btn-success">Preview</button>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/jquery-1.12.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+
+
+   $('#click').click(function () {
+                window.location.assign("https://drive.google.com/viewerng/viewer?embedded=true&url=@ViewBag.DocumentLocation");
+               // var myWindow = window.open("https://drive.google.com/viewerng/viewer?embedded=true&url=@ViewBag.DocumentLocation", "MsgWindow", "width=600,height=600");
+   });
+
+            // set time out 5 sec
+            setTimeout(function v() {
+            $('#click').trigger('click');
+            //window.location.assign("https://drive.google.com/viewerng/viewer?embedded=true&url=@ViewBag.DocumentLocation");
+            }, 100);
+    });
+
+</script>
